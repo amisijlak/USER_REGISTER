@@ -1,0 +1,13 @@
+﻿@inject IDbRepository repository
+@model ApplicationUser
+
+<div>
+    @Html.TextBoxWithLabelFor(m => m.UserName, new { @readonly = true })
+    @Html.HiddenFor(m => m.UserName)
+    @Html.TextBoxWithLabelFor(m => m.Email, new { @readonly = true })
+    @Html.HiddenFor(m => m.Email)
+
+    <label>Enter Code</label>
+    @Html.TextBoxWithoutLabelFor(m => m.LoginToken)
+</div>
+

@@ -1,0 +1,42 @@
+﻿@inject IDbRepository repository
+@model ApplicationUser
+
+<div>
+    <div class="row">
+        <div class="col-sm-4">
+
+            @Html.TextBoxWithLabelFor(m => m.FirstName)
+        </div>
+        <div class="col-sm-4">
+            @Html.TextBoxWithLabelFor(m => m.LastName)
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Telephone</label>
+            @Html.TextBoxWithoutLabelFor(m => m.PhoneNumber, new { @required = true })
+        </div>
+
+        <div class="col-sm-4">
+            @Html.TextBoxWithLabelFor(m => m.UserEmail)
+        </div>
+    </div>
+    <div class="row">
+        @*<div class="col-sm-4">
+            @Html.TextBoxWithLabelFor(m => m.UserName)
+        </div>*@
+
+        <div class="col-sm-4">
+            @Html.PasswordWithLabel("Password", "Password", new { @maxlength = "30", @autocomplete = "off" })
+        </div>
+        <div class="col-sm-4">
+            @Html.PasswordWithLabel("Confirm Password", "ConfirmPassword", new { @maxlength = "100", @autocomplete = "off" })
+        </div>
+    </div>
+    @*<div class="row">
+       
+    </div>*@
+    </div>
+

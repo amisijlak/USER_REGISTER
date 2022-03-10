@@ -1,0 +1,129 @@
+﻿@inject IDbRepository repository
+@model ApplicationUser
+@{
+    var roleIds = repository.Set<SecurityRole>().OrderBy(r => r.Name).Select(r => r.Id).ToList();
+    //SecurityRole
+}
+
+<style type="text/css">
+    .panel-heading {
+        background: #ededed !important;
+        border-color: #f6cb3e !important;
+    }
+</style>
+
+<div>
+
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="card card-default">
+                <div class="card-header">
+                        <strong>User Details</strong>
+                    </div>
+                <div class="card-body">
+                    <div>
+                        @Html.TextBoxWithLabelFor(m => m.FirstName)
+                    </div>
+                    <div>
+                        @Html.TextBoxWithLabelFor(m => m.LastName)
+                    </div>
+                    <div>
+                        <label>Telephone</label>
+                        @Html.TextBoxWithoutLabelFor(m => m.PhoneNumber, new { @required = true })
+                    </div>
+                    <div>
+                        @Html.TextBoxWithLabelFor(m => m.Age)
+                    </div>
+                    <div>
+                        @Html.TextBoxWithLabelFor(m => m.UserEmail)
+                    </div>
+                    <div>
+                        Is HIV Positive
+                        @Html.CheckBoxFor(m => m.HIVStatus)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-5">
+            <div class="card card-default">
+                <div class="card-header">
+                        <strong>Login Details</strong>
+                    </div>
+                <div class="card-body">
+                    <div>
+                        @Html.TextBoxWithLabelFor(m => m.UserName, new { @required = true })
+                    </div>
+
+                    <div>
+                        @Html.PasswordWithLabel("Password", "Password", new { @maxlength = "30", @autocomplete = "off" })
+                    </div>
+                    <div>
+                        @Html.PasswordWithLabel("Confirm Password", "ConfirmPassword", new { @maxlength = "100", @autocomplete = "off" })
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+
+                <div class="col-sm-4">
+                    @Html.TextBoxWithLabelFor(m => m.FirstName)
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBoxWithLabelFor(m => m.LastName)
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Telephone</label>
+                    @Html.TextBoxWithoutLabelFor(m => m.PhoneNumber, new { @required = true })
+                </div>
+
+                <div class="col-sm-4">
+                    @Html.TextBoxWithLabelFor(m => m.UserEmail)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    @Html.TextBoxWithLabelFor(m => m.UserName, new { @required = true })
+                </div>
+
+                <div class="col-sm-4">
+                    @Html.PasswordWithLabel("Password", "Password", new { @maxlength = "30", @autocomplete = "off" })
+                </div>
+                <div class="col-sm-4">
+                    @Html.PasswordWithLabel("Confirm Password", "ConfirmPassword", new { @maxlength = "100", @autocomplete = "off" })
+                </div>
+
+            </div>
+
+
+    </div>*@
+
+
+@*@section Scripts{
+    <script type="text/javascript">
+        function addRole() {
+            var html = templateManager.getTemplateHtml("role");
+
+            if (html == null) {
+                error("Template Not Found!");
+            }
+            else {
+                var container = $(".role-mapping-container tbody");
+                container.append(html);
+                helper.controls.formatControls(container);
+            }
+        }
+
+    </script>
+ }*@

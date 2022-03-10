@@ -1,0 +1,11 @@
+﻿@inject IDbRepository repository
+@model UserDetails
+@{
+}
+<tr>
+    <td>@Model.UserName</td>
+    <td>@Model.FullName</td>
+    <td>@Model.Email</td>
+    <th class="align-center">@Html.Raw(Model.LockedOut ? "<span class='text-danger'>Yes</span>" : "<span>No</span>")</th>
+    <td></td>
+</tr>

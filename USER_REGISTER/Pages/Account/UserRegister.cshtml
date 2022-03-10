@@ -1,0 +1,72 @@
+﻿@page
+@model USER_REGISTER.Pages.Account.UserRegisterModel
+@{
+    ViewData["Title"] = "User Details";
+    Layout = "_Layout";
+}
+
+<form method="post">
+
+    <div class="card-body">
+        <partial name="_UserDetails" model="Model.user" />
+        <dnt-captcha asp-captcha-generator-max="999999"
+                     asp-captcha-generator-min="111111"
+                     asp-captcha-generator-language="English"
+                     asp-captcha-generator-display-mode="ShowDigits"
+                     asp-use-relative-urls="true"
+                     asp-placeholder="Enter Security code"
+                     asp-validation-error-message="Please enter the security code."
+                     asp-font-name="Tahoma"
+                     asp-font-size="25"
+                     asp-fore-color="#333333"
+                     asp-back-color="#ccc"
+                     asp-text-box-class="text-box form-control"
+                     asp-text-box-template="<span class='input-group-prepend'><span class='form-group-text'></span></span>{0}"
+                     asp-validation-message-class="text-danger"
+                     asp-refresh-button-class="fas fa-redo btn-sm"
+                     asp-use-noise="true" />
+    </div>
+    <div class="clearfix"></div>
+    <div class="card-footer text-right">
+        @Html.RenderSaveButtonsControl(false)
+    </div>
+</form>
+
+<form id="reload-form" action="@Url.Content(GlobalPageLinks.AccountLogin)">
+    <input type="hidden" id="SuccessMessage" name="SuccessMessage" />
+</form>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+        app.controls.disableFormSubmission("Id");
+        app.logic.initializeSaveURL("@Url.Content(GlobalPageLinks.AccountUserRegister)");
+
+        });
+
+        $("#PhoneNumber").focusout(function () {
+
+            var num = $("#PhoneNumber").val();
+            var trimmedNum = num.replace(/ /g, '').replace(/-/g, '');
+            //alert(trimmedNum);
+
+            if (trimmedNum != '') {
+                if ($.isNumeric(trimmedNum)) {
+
+                    if (trimmedNum.length == 10) {
+                        //alert("valid");
+                    }
+                    else {
+                        $("#PhoneNumber").val("");
+                        alert("Please enter a valid phone no.");
+                    }
+                } else {
+                    $("#PhoneNumber").val("");
+                    alert("Please enter a valid phone no.");
+                }
+            }
+
+        });
+
+    </script>
+}

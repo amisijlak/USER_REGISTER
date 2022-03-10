@@ -1,0 +1,46 @@
+﻿@page
+@model USER_REGISTER.Pages.Account.SystemUsersModel
+@{
+    ViewData["Title"] = "System Users";
+    Layout = "_Layout";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+    <div class="margin-bottom-10">
+        <a href="@Url.Content(GlobalPageLinks.AccountCreateUser)" class="btn btn-info"><i class="fa fa-plus"></i> New User</a>
+    </div>
+
+@Model.user.Count()
+
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var item in Model.user)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.UserName</td>
+                    <td>@item.Phonenumber</td>
+                    <td>@item.Email</td>
+                    <td>@item.Age</td>
+                    <td>
+                        <a href="@Url.Content(GlobalPageLinks.AccountEditUser)?Id=@item.Id"><i class="fa fa-edit"></i> Edit</a>
+                    </td>
+                </tr>
+            }
+                   </tbody>
+    </table>
+</div>

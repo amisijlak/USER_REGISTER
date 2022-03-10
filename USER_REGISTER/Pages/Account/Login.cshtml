@@ -1,0 +1,97 @@
+﻿@page
+@model USER_REGISTER.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<style type="text/css">
+    .footer-display {
+        display: block !important;
+        text-align:left;
+    }
+
+    .footer {
+        padding: 0.75rem 1.25rem;
+        background-color: rgba(0, 0, 0, 0.03);
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+</style>
+@Html.RenderErrorMessageControl()
+@Html.RenderSuccessMessageControl()
+
+<form method="post">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    @Html.TextBoxWithLabelFor(m => m.UsernameOrEmail, new { @required = "required", @autocomplete = "off", maxlength = 255 })
+                    @Html.PasswordWithLabelFor(m => m.Password, new { @required = "required", @autocomplete = "off", maxlength = 255 })
+
+                    <dnt-captcha asp-captcha-generator-max="999999"
+                                 asp-captcha-generator-min="111111"
+                                 asp-captcha-generator-language="English"
+                                 asp-captcha-generator-display-mode="ShowDigits"
+                                 asp-use-relative-urls="true"
+                                 asp-placeholder="Enter Security code"
+                                 asp-validation-error-message="Please enter the security code."
+                                 asp-font-name="Tahoma"
+                                 asp-font-size="25"
+                                 asp-fore-color="#333333"
+                                 asp-back-color="#ccc"
+                                 asp-text-box-class="text-box form-control"
+                                 asp-text-box-template="<span class='input-group-prepend'><span class='form-group-text'></span></span>{0}"
+                                 asp-validation-message-class="text-danger"
+                                 asp-refresh-button-class="fas fa-redo btn-sm"
+                                 asp-use-noise="false" />
+
+                    <div style="margin-top:3px">
+                        @Html.CheckBox("ShowPassword")
+                        <span style="color:#777">Show Password</span>
+                    </div>
+                </div>
+
+                <div class="footer-display card-footer">
+                    <table class="table table-bordered" style="border:0px;background-color:#f7f7f7;">
+                        <tbody>
+                            <tr>
+
+                                <td>
+                                    <a class="nav-link text-dark pull-left" href="@Url.Content(GlobalPageLinks.UserRegisterIndex)"><i class="fa fa-user-edit"></i> Sign Up</a>
+                                </td>
+
+                                <td style="text-align:right">
+                                    <input type="submit" value="Login" class="btn btn-primary pull-right" />
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script type="text/javascript">
+        app.controls.MENU_TO_ACTIVATE = "menu-login";
+
+        $(function () {
+            $("#ShowPassword").click(handleShowPassword);
+        });
+
+        function handleShowPassword(event) {
+            const passwordField = $("#Password");
+
+            if ($(event.target).is(":checked")) {
+                passwordField.attr("type", "text");
+            }
+            else {
+                passwordField.attr("type", "password");
+            }
+        }
+    </script>
+}

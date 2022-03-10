@@ -1,0 +1,472 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    border-color: #000;
+    background-color: #666;
+}
+
+    .btn-primary:hover, .btn-primary :active {
+        background-color: #000;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    font-size: 12px;
+    background-color: #018ace;
+    color: #333 !important;
+    border-top: 1px solid #7cc9d8 !important;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        font-size: 10px;
+    }
+}
+
+.footer a, .footer:visited {
+    color: crimson;
+    text-decoration: underline;
+}
+
+/*
+    Main Containers
+    ------------------------------
+*/
+.header-container {
+    height: 100px;
+    background-image: url('../images/uac30-png.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 180px auto;
+    background-position-y: 3px;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        background-size: 70px auto;
+        background-position-y: 5px;
+    }
+}
+
+.header-container .title {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 23px;
+    /*margin-bottom:5px;*/
+}
+
+.header-container .sub-title {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    color: goldenrod;
+}
+
+.blue-container {
+    background-color: #1BB0CE;
+    border: 1px solid #1a7e92;
+}
+
+/*
+    Components
+    ----------------------
+*/
+
+.blue-ball, .golden-ball, .red-ball, .black-ball {
+    border-radius: 50%;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    border: 2px solid;
+    margin-top: 10px;
+    font-size: 16px;
+    padding-top: 45px;
+}
+
+.blue-ball {
+    border-color: #1a7e92;
+    background-color: #1BB0CE;
+    background: radial-gradient(#1BB0CE,#0e96b2);
+}
+
+.golden-ball {
+    border-color: #f9bd16;
+    background-color: goldenrod;
+    background: radial-gradient(#f9d374 10%,#f9bd16);
+}
+
+.red-ball {
+    padding-top: 60px;
+    border-color: crimson;
+    background-color: rgb(255, 120, 104);
+    background: radial-gradient(rgb(255, 120, 104) 10%,crimson);
+}
+
+.black-ball {
+    border-color: #555;
+    background-color: #333;
+    background: radial-gradient(#888 10%,#555);
+    color: #FFF;
+}
+
+/*
+    MENU
+    -------------------------
+*/
+
+nav.navbar {
+    background: linear-gradient(to bottom,#e5e5e5,#FFF 5%,#FFF 90%,#e5e5e5) !important;
+    padding: 0px !important;
+    border-bottom-color: #121330 !important;
+}
+
+.navbar li.nav-item {
+    padding: 0px 1px;
+}
+
+    .navbar li.nav-item > a {
+        padding: 8px 20px !important;
+        border: 1px solid transparent;
+        border-bottom: none !important;
+    }
+
+        .navbar li.nav-item.active > a, .navbar li.nav-item:hover > a, .navbar li.nav-item > a:active {
+            background: linear-gradient(to bottom,#121330,rgb(226,135,67) 5%,rgb(226,135,67) 99%,#121330);
+            color: #FFF !important;
+            border-color: #121330;
+        }
+
+
+/*
+CONTROLS
+---------------
+    */
+input:not(.full-width):not(.dx-texteditor-input),
+select:not(.full-width) {
+    max-width: 280px;
+}
+
+.bootstrap-select input.form-control {
+    max-width: unset !important;
+}
+
+textarea {
+    resize: both !important;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    padding: 10px;
+    width: 100%;
+}
+
+    textarea:not(.full-width) {
+        width: 280px;
+    }
+
+.search-box {
+    width: 300px;
+}
+
+.form-control {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    height: inherit !important;
+    /*font-size: 12px;*/
+}
+
+.form-group > label {
+    display: block !important;
+}
+
+.btn {
+    /*font-size: 12px;*/
+    border-style: none;
+    padding: 4px 12px !important;
+    box-shadow: 1px 1px 1px 0px #CCC;
+    min-width: 60px;
+}
+
+.error-message {
+    color: crimson;
+    font-style: italic;
+}
+
+.busy-container {
+    /*
+        Represents a container with a busy animation
+    */
+}
+
+/*
+    MARGINS
+    --------------
+*/
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+
+/*
+    Tables
+    ===================
+*/
+.table-responsive {
+    overflow: auto;
+}
+
+    .table-responsive:not(.can-grow) {
+        max-height: 400px;
+    }
+
+.table {
+    background-color: white;
+}
+
+    .table th, .table td {
+        padding: 5px !important;
+    }
+
+.table-header-fixed > thead > tr {
+    background-color: #FFF;
+    white-space: nowrap;
+}
+
+.vertical-align-middle, tr.vertical-align-middle td, tr.vertical-align-middle th {
+    vertical-align: middle !important;
+}
+
+.table-numbered {
+    counter-reset: rowNo;
+}
+
+    .table-numbered > tbody > tr:not(.ignore) {
+        counter-increment: rowNo;
+    }
+
+        .table-numbered > tbody > tr:not(.ignore) > td:first-of-type::before {
+            content: counter(rowNo) '.';
+        }
+
+/*
+    WATCHED COLLECTION
+    ----------------------
+*/
+.watched-collection {
+}
+
+/*
+    TEMPLATE MANAGER
+    ----------------------
+*/
+.tm-add-row {
+}
+
+.tm-hide {
+    display: none;
+}
+
+.tm-info-window {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #CCC;
+    padding: 10px 0px;
+    font-weight: bold;
+    background-color: #bf82a5;
+    font-style: italic;
+}
+
+/*
+    BOOTSTRAP-SELECT
+    ------------------------
+*/
+.bootstrap-select:not(.bs-container) {
+    width: 100% !important;
+}
+
+.display-inline .bootstrap-select:not(.bs-container) {
+    min-width: 200px;
+}
+
+.bootstrap-select:not(.full-width):not(.bs-container) {
+    max-width: 280px !important;
+}
+
+.bootstrap-select.position-field:not(.bs-container) {
+    max-width: 100px !important;
+}
+
+.bootstrap-select.project-combo:not(.bs-container) {
+    width: 300px !important;
+}
+
+.bootstrap-select .btn {
+    border: 1px solid #CCC;
+    box-shadow: none;
+}
+
+.bootstrap-select .dropdown-menu.open, .dropdown-menu.show {
+    z-index: 1002;
+}
+
+.input-validation-error {
+    border-color: crimson;
+}
+
+.error, .field-validation-error {
+    color: crimson;
+}
+/*
+    FORMATTING
+    --------------
+*/
+.no-padding {
+    padding: 0px;
+}
+
+.pull-right {
+    float: right;
+}
+
+.display-inline {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.filters .display-inline {
+    vertical-align: top;
+}
+
+.filters .filter-buttons {
+    padding-top: 22px;
+}
+
+.display-inline select, .display-inline input {
+    display: inline-block;
+}
+
+#dialog-icon {
+    font-size: 50px !important;
+}
+
+.dialog-message {
+    font-size: 14px !important;
+    margin-top: 10px;
+}
+
+.vertical-align-top, .vertical-align-top .display-inline {
+    vertical-align: top;
+}
+
+.bootstrap-datetimepicker-widget {
+    z-index: 1003 !important;
+}
+
+.remove-row {
+}
+
+.related-combo {
+}
+
+.require-commas {
+}
+
+.save-button {
+}
+
+.change-triggers-postback {
+}
+
+.item-checkbox {
+}
+
+.master-checkbox {
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.current-area-title {
+    padding: 3px 8px;
+    border: 1px solid #ccfb56;
+    background-color: #ebfcbd;
+    display: inline-block;
+    border-radius: 4px;
+    color: #046935;
+    margin-bottom: 10px;
+}

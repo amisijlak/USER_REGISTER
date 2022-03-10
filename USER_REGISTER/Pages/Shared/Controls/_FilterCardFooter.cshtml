@@ -1,0 +1,12 @@
+﻿@model BasePageModel
+<div class="card-footer">
+    <div class="row">
+        <div class="col-sm">
+            @Html.RenderPageSizeControl()
+        </div>
+        <div class="col-sm text-right">
+            <input type="submit" class="btn btn-primary" value="Search" />
+            <a asp-action="@ViewData["_FilterCardFooterAction"]" class="btn btn-info">Clear</a>
+        </div>
+    </div>
+</div>

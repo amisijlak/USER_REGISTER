@@ -1,0 +1,35 @@
+﻿@page
+@model USER_REGISTER.Pages.Account.LoginConfirmationCodeModel
+@{
+    ViewData["Title"] = "Confirmation Code";    
+    Layout = "_Layout";
+}
+@Html.RenderErrorMessageControl()
+
+<h3>Please enter the code that was sent to your email to complete registration first!</h3>
+<form method="post">    
+
+    <div class="card-body">
+        <partial name="_CodeDetails" model="Model.user" />
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="card-footer text-right">
+        @Html.RenderSaveButtonsControl(false)
+    </div>
+</form>
+
+<form id="reload-form" action="@Url.Content(GlobalPageLinks.AccountLogin)">
+    <input type="hidden" id="SuccessMessage" name="SuccessMessage" />
+</form>
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            app.controls.disableFormSubmission("UserName");
+        app.logic.initializeSaveURL("@Url.Content(GlobalPageLinks.AccountLoginConfirmationCode)");
+
+        });
+    </script>
+}
+

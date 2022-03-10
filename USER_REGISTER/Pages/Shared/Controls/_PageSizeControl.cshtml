@@ -1,0 +1,5 @@
+﻿@model IViewModel
+<label>Page Size: </label>
+<div style="max-width:100px;display:inline-block">
+    @Html.DropDownListFor(m => m.PageSize, new SelectList(IViewModel.PageSizes),null,new { @class= "change-triggers-postback" })
+</div>

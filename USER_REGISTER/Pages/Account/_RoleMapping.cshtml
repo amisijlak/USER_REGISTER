@@ -1,0 +1,16 @@
+﻿@inject IDbRepository repository 
+@model Guid?
+@{
+    var roles = repository.Set<SecurityRole> ().OrderBy(r => r.Name).GetSelectList(r => r.Name, r => r.Id, Model);
+}
+<tr class="watched-collection margin-bottom-10" collection-name="RoleNames">
+    <td></td>
+    <td>
+        @Html.DropDownList("Item1", roles, "-select-", new { @required = "required" })
+
+        @Html.DropDownList("Item1", roles,"",new { })
+
+        @Html.ValidationMessage("Item1")
+    </td>
+    <td class="text-center"><a href="javascript:void(0)" class="remove-row"><i class="fa fa-trash text-danger"></i></a></td>
+</tr>
